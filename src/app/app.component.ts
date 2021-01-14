@@ -18,10 +18,11 @@ export class AppComponent {
   ) {}
 
   get isSignedIn(): boolean {
-    return AuthService.isSignedIn;
+    let verif =AuthService.isSignedIn;
+    return verif;
   }
 
-  get isOnAccueilPage(): boolean {
+  get Accueil(): boolean {
     return this.route.url == '/auth/accueil';
   }
 
@@ -33,5 +34,8 @@ export class AppComponent {
       duration: 2500
     });
   }
-
+  
+  get isSensei(): boolean{
+    return AuthService.isSensei;
+  }
 }

@@ -36,11 +36,6 @@ export class SigninComponent implements OnInit {
 
   signin() {
 
-    console.log('submitted : ');
-
-    // toutes les données du formulaire
-    console.log(this.userForm.getRawValue());
-
     this.authService.signin(
       this.emailControl.value,
       this.passwordControl.value

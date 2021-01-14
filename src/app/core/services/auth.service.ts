@@ -22,14 +22,18 @@ export class AuthService {
   static get isSignedIn(): boolean {
     return AuthService.user !== null;
   }
-
+  static get isSensei(): boolean {
+    if (AuthService.user === null) {
+      return false;
+    }
+    return AuthService.user.roles.includes('ROLE_ADMIN');
+  }
   signin(email: string, password: string): Observable<any> {
     return this.httpClient.post(
       `${environment.api}/api/login_check`,
       {email, password}
       ).pipe(
       tap(response => {
-        console.log('token', response.token);
         this.sessionService.setToken(response.token);
       })
     );

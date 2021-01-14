@@ -5,6 +5,12 @@ import { AccueilComponent } from './auth/components/accueil/accueil.component'
 
 const routes: Routes = [
   {
+    path: 'admin',
+    canActivate: [CanActivateGuard],
+    data: { admin: true },
+    loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule),
+  },
+  {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(mod => mod.AuthModule),
   },
