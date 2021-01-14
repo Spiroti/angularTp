@@ -13,21 +13,21 @@ export class AppComponent {
 
   constructor(
     private sessionService: SessionService,
-    private router: Router,
+    private route: Router,
     private snack: MatSnackBar
   ) {}
 
   get isSignedIn(): boolean {
-    this.snack.open('Deconnection.', 'Ok', {
-      duration: 3000
-    });
     return AuthService.isSignedIn;
   }
 
   signout(): void {
     AuthService.user = null;
     this.sessionService.clear();
-    this.router.navigate(['/auth/signin']);
+    this.route.navigate(['/auth/signin']);
+    this.snack.open('Disconnection.', 'Ok', {
+      duration: 2500
+    });
   }
 
 }

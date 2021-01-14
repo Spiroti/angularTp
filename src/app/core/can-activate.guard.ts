@@ -29,9 +29,9 @@ export class CanActivateGuard implements CanActivate {
         let status = 500;
         if (error.status === 401 || error.status === 403) { // unauthorized or forbidden //
           status = error.status;
-          this.snack.open('Non connecté','Ok', {
+          this.snack.open('Not connected','Ok', {
             duration: 2500
-          })
+          });
         }
         return of({ status });
       }),
@@ -49,7 +49,7 @@ export class CanActivateGuard implements CanActivate {
             this.router.navigate(['/auth/signin']);
             this.snack.open('No permissions','Ok', {
             duration: 2500
-            })
+            });
             return false;
           }
           return true;

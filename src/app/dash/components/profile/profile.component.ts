@@ -55,10 +55,9 @@ export class ProfileComponent implements OnInit {
   updateProfile(): void {
     const userChanges = this.userForm.getRawValue();
     this.profileService.updateProfile(userChanges).subscribe(() =>{
-      let snackAlert = this.snack.open('Modifications enregistrées.', 'Retour', {
+      let snackAlert = this.snack.open('Modifications saved.', 'Return', {
         duration: 3000
       });
-
       snackAlert.onAction().subscribe(() => {
         this.route.navigate(['/dash/home']);
       });
