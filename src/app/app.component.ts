@@ -21,6 +21,10 @@ export class AppComponent {
     return AuthService.isSignedIn;
   }
 
+  get isOnAccueilPage(): boolean {
+    return this.route.url == '/auth/accueil';
+  }
+
   signout(): void {
     AuthService.user = null;
     this.sessionService.clear();

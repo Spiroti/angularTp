@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {CanActivateGuard} from './core/can-activate.guard';
+import { AccueilComponent } from './auth/components/accueil/accueil.component'
 
 const routes: Routes = [
   {
@@ -10,12 +11,11 @@ const routes: Routes = [
   {
     path: 'dash',
     canActivate: [CanActivateGuard],
-    data: { admin: true },
     loadChildren: () => import('./dash/dash.module').then(mod => mod.DashModule),
   },
   {
     path: '**',
-    redirectTo: '/auth/signin'
+    redirectTo: '/auth/accueil',
   }
 ];
 

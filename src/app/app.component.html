@@ -1,22 +1,22 @@
-<nav>
+<nav *ngIf="!isOnAccueilPage">
   <button mat-icon-button [matMenuTriggerFor]="nav_menu">
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #nav_menu="matMenu">
     <button *ngIf="!isSignedIn" routerLink="/auth/signin" mat-menu-item>
-      <span>Se connecter</span>
+      <span>Sign in</span>
     </button>
     <button *ngIf="!isSignedIn" routerLink="/auth/signup" mat-menu-item>
-      <span>S'inscrire</span>
+      <span>Sign up</span>
     </button>
     <button *ngIf="isSignedIn" routerLink="/dash/profile" mat-menu-item>
       <span>Profil</span>
     </button>
-    <button *ngIf="isSignedIn" routerLink="/dash/home" mat-menu-item>
+    <button *ngIf="isSignedIn" routerLink="/auth/accueil" mat-menu-item>
       <span>Accueil</span>
     </button>
     <button *ngIf="isSignedIn" (click)="signout()" mat-menu-item>
-      <span>Se déconnecter</span>
+      <span>Sign out</span>
     </button>
 
   </mat-menu>
