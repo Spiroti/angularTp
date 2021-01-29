@@ -26,10 +26,10 @@ export class AppComponent {
     return this.route.url == '/auth/accueil';
   }
 
-  signout(): void {
+  signOut(): void {
     AuthService.user = null;
     this.sessionService.clear();
-    this.route.navigate(['/auth/signin']);
+    this.route.navigate(['/auth/signIn']);
     this.snack.open('Disconnection.', 'Ok', {
       duration: 2500
     });

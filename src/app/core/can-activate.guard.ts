@@ -11,12 +11,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class CanActivateGuard implements CanActivate {
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-    private snack: MatSnackBar
-  ) {
-  }
+  constructor(private authService: AuthService, private router: Router, private snack: MatSnackBar) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -27,7 +22,7 @@ export class CanActivateGuard implements CanActivate {
       // on regarde si on a un erreur de permission et on retourne le status de la requête
       catchError((error: Response) => {
         let status = 500;
-        if (error.status === 401 || error.status === 403) { // unauthorized or forbidden //
+        if (error.status == 401 || error.status == 403) { // unauthorized or forbidden //
           status = error.status;
           this.snack.open('Not connected','Ok', {
             duration: 2500
@@ -39,14 +34,14 @@ export class CanActivateGuard implements CanActivate {
       // on retourne true ou false en fonction du status ( et donc de la permission )
       map((response: { status: number } | User ) => {
         if ('status' in response) {
-          if (401 === response.status || 403 === response.status) {
-            this.router.navigate(['/auth/signin']);
+          if (401 == response.status || 403 == response.status) {
+            this.router.navigate(['/auth/signIn']);
             return false;
           }
           return true;
         } else {
           if ( !response.roles.includes('ROLE_ADMIN') && ('admin' in next.data) ) {
-            this.router.navigate(['/auth/signin']);
+            this.router.navigate(['/auth/signIn']);
             this.snack.open('No permissions','Ok', {
             duration: 2500
             });

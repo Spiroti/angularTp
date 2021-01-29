@@ -1,0 +1,54 @@
+h2 {
+    text-align: center;
+}
+
+.pinkButton{
+    background-color: #ff4081;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+    border: none;
+    border-radius: 4px;
+    padding: 0 16px;
+    margin: 25px 0;
+    color: white;
+    line-height: 36px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor:pointer;
+}
+
+#block{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    margin-top: 50px;
+}
+
+.material{
+    width: 75%;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+    padding:5px;
+    margin-bottom: 15px;
+}
+
+.mat-cell{
+    color: white !important;
+    border: solid collapse 2px black;
+    text-align: center;
+}
+
+.pair{
+    background-color: #ff4081;
+    padding:10px;
+}
+
+.impair{
+    background-color: silver;
+    padding:10px;
+}
+
+.mat-header-cell{
+    text-align:center;
+}

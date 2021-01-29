@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SigninComponent } from './components/signin/signin.component';
+import { signInComponent } from './components/signIn/signIn.component';
 import {AuthRoutingModule} from './auth-routing.module';
-import { SignupComponent } from './components/signup/signup.component';
+import { signUpComponent } from './components/signUp/signUp.component';
 import {UserPartsModule} from '../shared/user-parts/user-parts.module';
 import {SharedModule} from '../shared/shared.module';
 import { AccueilComponent } from './components/accueil/accueil.component';
@@ -10,7 +10,7 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 
 
 @NgModule({
-  declarations: [SigninComponent, SignupComponent, AccueilComponent],
+  declarations: [signInComponent, signUpComponent, AccueilComponent],
   imports: [
     SharedModule,
     AuthRoutingModule,

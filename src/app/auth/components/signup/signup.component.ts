@@ -5,11 +5,11 @@ import {User} from '../../../core/entities/user';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  selector: 'app-signUp',
+  templateUrl: './signUp.component.html',
+  styleUrls: ['./signUp.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class signUpComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
@@ -27,12 +27,12 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  signup() {
+  signUp() {
     const newUser = new User(this.userForm.getRawValue());
-    this.authService.signup(newUser).subscribe(
+    this.authService.signUp(newUser).subscribe(
       () => {
         // inscription réussie !
-        this.authService.signin(newUser.email, newUser.password).subscribe(
+        this.authService.signIn(newUser.email, newUser.password).subscribe(
           () => {
             this.router.navigate(['dash/home']);
           }, () => {

@@ -4,11 +4,11 @@ import {AuthService} from '../../../core/services/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  selector: 'app-signIn',
+  templateUrl: './signIn.component.html',
+  styleUrls: ['./signIn.component.scss']
 })
-export class SigninComponent implements OnInit {
+export class signInComponent implements OnInit {
 
 
   constructor(
@@ -34,9 +34,9 @@ export class SigninComponent implements OnInit {
     return this.userForm.get('password');
   }
 
-  signin() {
+  signIn() {
 
-    this.authService.signin(
+    this.authService.signIn(
       this.emailControl.value,
       this.passwordControl.value
     ).subscribe(
@@ -49,12 +49,4 @@ export class SigninComponent implements OnInit {
         console.log({ err });
       });
   }
-
-
-
-
-
-
-
-
 }
